@@ -1,0 +1,28 @@
+<div class="thumbnail">
+  <div>
+    <img src="http://placehold.it/800x300" alt="">
+  </div>
+  <div>
+    <h4 class="pull-right">{{product.price}}元</h4>
+    <h4 class="text-center text-danger">{{product.title}}</h4>
+    <p class="text-primary">{{product.desc}}</p>
+  </div>
+  <div>
+    <p class="pull-right">{{comments.length}}</p>
+    <app-star [rating]="product.rating"></app-star>
+  </div>
+</div>
+
+<div class="well">
+  <div class="row" *ngFor="let comment of comments">
+    <hr/>
+    <div class="col-md-12">
+      <app-star [rating]="comment.rating"></app-star>
+      <span>{{comment.userName}}</span>
+      <span class="pull-right">{{comment.timestamp|date}}</span>
+      <p></p>
+      <p class="text-danger">{{comment.content}}</p>
+    </div>
+  </div>
+</div>
+<button (click)="goback()">返回</button>
